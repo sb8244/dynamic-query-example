@@ -7,8 +7,10 @@ defmodule SqlBuilderWeb.Component do
     <button phx-click="add" phx-target="<%= @myself %>">Add</button>
 
     <div style="padding-left: 10px;">
-      <%= for id <- @list do %>
-        <%= live_component @socket, __MODULE__, id: id %>
+      <%= if @list != [] do %>
+        <%= for id <- @list do %>
+          <%= live_component @socket, __MODULE__, id: id %>
+        <% end %>
       <% end %>
     </div>
     """
